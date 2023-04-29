@@ -1,0 +1,24 @@
+// line-height
+$line-height-1dot2: 1.2;
+$line-height-1dot3: 1.3;
+$line-height-1dot4: 1.4;
+$line-height-1dot5: 1.5;
+$line-height-1dot6: 1.6;
+$line-height-1dot7: 1.7;
+$line-height-1dot8: 1.8;
+
+// letter-spacing
+$letter-spacing-0: 0;
+$letter-spacing-0dot5: .05em;
+
+
+// transition
+$t-original2: all .2s cubic-bezier(.03, .98, .41, .81);
+$t-original3: all .3s cubic-bezier(.03, .98, .41, .81);
+$t-original5: all .5s cubic-bezier(.03, .98, .41, .81);
+$t-ease1: all ease .1s;
+$t-ease2: all ease .2s;
+$t-ease3: all ease .3s;
+$t-ease4: all ease .4s;
+$t-ease5: all ease .5s;
+$t-ease8: all ease .8s;

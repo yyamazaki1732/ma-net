@@ -1,0 +1,189 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+// ===============================================
+// # contact form 7 
+// ===============================================
+div.wpcf7 .ajax-loader,
+.wpcf7 form.sent .wpcf7-mail-sent-ok,
+.wpcf7-response-output,
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7-spinner {
+  display: none !important;
+}
+
+// # reCapture
+// ===============================================
+.l-form__note {
+  width: fit-content;
+  margin-left: auto;
+  text-align: right;
+  padding: 0 min(6.4vw, 40px);
+
+  a {
+    display: inline-block;
+    text-decoration: underline;
+    color: c.$c-primary-550;
+  }
+
+  br {
+    display: none;
+  }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+@include m.bp-map(tab) {
+  .l-form__note {
+    br {
+      display: block;
+    }
+  }
+}
+
+@include m.bp-map(pc) {
+  .l-form__note {
+    padding: 0;
+  }
+}
+
+
+// ===============================================
+// # form
+// ===============================================
+
+::placeholder {
+  color: c.$c-neutral-400;
+}
+
+.l-form__list {
+
+  padding-top: 8px
+}
+
+.l-form__block {
+  transition: v.$t-ease1;
+  padding: 16px 0;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid c.$c-primary-250;
+  }
+
+  &:first-of-type {
+    .l-form__desc {
+      p {
+        position: relative;
+        width: fit-content;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          translate: -100% -75%;
+          width: 7px;
+          height: 7px;
+          border-right: 2px solid c.$c-primary-900;
+          border-bottom: 2px solid c.$c-primary-900;
+          rotate: 45deg;
+        }
+      }
+    }
+  }
+}
+
+.l-form__term {
+  font-weight: 700;
+  padding-left: fu.vw(24px);
+  padding-right: fu.vw(24px);
+}
+
+.l-form__desc {
+  margin-top: 12px;
+  padding-left: fu.vw(24px);
+  padding-right: fu.vw(24px);
+}
+
+.l-form__sign {
+  display: inline-block;
+  margin-left: fu.rem(8px);
+  padding: 1px 4px 0px 3px;
+  background-color: c.$c-accent-650;
+  color: c.$c-neutral-100;
+  font-weight: 400;
+  font-size: fu.rem(12px);
+}
+
+.l-form__input,
+.l-form__textarea,
+.l-form__select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 2px;
+  font-size: 14px;
+  outline: 1px solid c.$c-neutral-500;
+  background-color: c.$c-neutral-100;
+}
+
+.l-form__select {
+  width: fit-content;
+  color: c.$c-neutral-700;
+}
+
+.l-form__textarea {
+  height: 300px;
+}
+
+.l-form__select:focus,
+.l-form__input:focus,
+.l-form__textarea:focus {
+  outline: 2px solid c.$c-neutral-700;
+}
+
+.l-form__button {
+  width: fit-content;
+  margin: 72px auto 0;
+
+  br {
+    display: none !important;
+  }
+}
+
+.l-form__block:focus-within {
+  background-color: c.$c-primary-200;
+}
+
+
+@include m.bp-map(tab) {
+  .l-form__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: initial;
+
+    &:last-of-type {
+      align-items: flex-start;
+    }
+  }
+
+  .l-form__desc {
+    margin-top: 0;
+    width: 60%;
+  }
+
+  .l-form__term {
+    padding-right: 0;
+  }
+
+  .l-form__desc {
+    padding-left: 0;
+  }
+}

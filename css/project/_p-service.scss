@@ -1,0 +1,85 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+
+// ===============================================
+// # mv
+// ===============================================
+.p-service-mv {
+  margin-top: 100px;
+}
+
+.p-service-mv__title {
+  font-weight: 700;
+  font-size: fu.rem(16px);
+}
+
+@include m.bp-map(pc) {
+
+  .p-service-mv__title {
+    font-size: fu.rem(24px);
+  }
+}
+
+// ===============================================
+// # vision
+// ===============================================
+.p-service-01__inner {
+  padding: 64px fu.vw(24px);
+}
+
+.p-service-01__catchphrase {
+  margin-top: 8px;
+}
+
+.p-service-01__catchphrase-en {
+  margin-top: 8px;
+
+  span {
+    color: c.$c-primary-300;
+    font-weight: 700;
+    font-size: fu.rem(18px);
+  }
+}
+
+.p-service-01__txt {
+  margin-top: 24px;
+
+  &:nth-of-type(2) {
+    font-weight: 700;
+    font-size: fu.rem(16px);
+  }
+}
+
+@include m.bp-map(tab) {
+  .p-service-01__catchphrase-block {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 24px;
+  }
+
+  .p-service-01__txt {
+
+    &:nth-of-type(2) {
+      font-size: fu.rem(20px);
+    }
+  }
+}
+
+@include m.bp-map(pc) {
+  .p-service-01 {
+    background-image: linear-gradient(270deg, c.$c-primary-200 3vw, c.$c-neutral-100 3vw);
+  }
+
+  .p-service-01__inner {
+    margin: 0 auto;
+    width: fu.vw(800px, 1024px);
+    max-width: 1000px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

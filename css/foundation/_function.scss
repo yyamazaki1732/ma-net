@@ -1,0 +1,31 @@
+// px → rem
+// 第1引数に指定したいピクセル値を指定
+// 第2引数に基準となるルートのfont-size値（デフォルトでは16px）を指定
+@function rem($px, $base: 16px) {
+    $value: (($px)/($base)) * 1rem;
+    @return $value;
+}
+
+// px → em
+// 第1引数に指定したいピクセル値を指定
+// 第2引数に基準となるルートのfont-size値（デフォルトでは16px）を指定
+@function em($px, $base: 16px) {
+    $value: (($px)/($base)) * 1em;
+    @return $value;
+}
+
+// px → vw
+// 第1引数に指定したいピクセル値を指定
+// 第2引数に基準となる画面幅（デザインカンプの横幅）を指定
+@function vw($px, $base: 375px) {
+    $value: (($px)/($base))*100vw;
+    @return $value;
+}
+
+// px → vh
+// 第1引数に指定したいピクセル値を指定
+// 第2引数に基準となる画面幅（デザインカンプの横幅）を指定
+@function vh($px, $base: 667px) {
+    $value: (($px)/($base))*100vh;
+    @return $value;
+}

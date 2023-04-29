@@ -1,0 +1,87 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+.c-location__list {
+  padding-left: fu.vw(24px);
+  color: c.$c-primary-800;
+}
+
+.c-location__item {
+  font-weight: 700;
+
+  // &:first-of-type {
+  //   font-size: fu.rem(18px);
+  //   position: absolute;
+  //   top: 100px;
+  // }
+}
+
+.c-location__link {
+  position: relative;
+  padding: 6px 0 6px 10px;
+  width: fit-content;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 2px;
+    background-color: c.$c-primary-850;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: 0 -50%;
+    transform: scaleX(1);
+    transition: transform ease .2s;
+    transform-origin: bottom left;
+  }
+}
+
+@media(hover:hover) {
+  .c-location__link:hover::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+}
+
+@include m.bp-map(tab) {
+  .c-location__list {
+    position: absolute;
+    top: 218px;
+  }
+
+  // .c-location__item {
+  //   &:first-of-type {
+  //     font-size: fu.rem(20px);
+  //     position: static;
+  //   }
+  // }
+}
+
+@include m.bp-map(pc) {
+
+  .c-location__list {
+    position: fixed;
+    z-index: 1;
+    left: 1.5vw;
+    padding-left: 0;
+    top: 164px;
+  }
+
+  // .c-location__item {
+  //   &:not(:first-of-type) {
+  //     position: fixed;
+  //   }
+  // }
+
+  // .c-location__list {
+  //   @for $i from 1 through 7 {
+  //     .c-location__item:not(:first-of-type):nth-of-type(#{$i}) {
+  //       top: calc(#{$i * 30}px + 70px);
+  //     }
+  //   }
+  // }
+}

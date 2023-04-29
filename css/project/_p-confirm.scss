@@ -1,0 +1,19 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+
+.p-confirm-main__micro {
+  margin-top: 80px;
+  padding: 0 fu.vw(24px);
+}
+
+@include m.bp-map(pc) {
+  .p-confirm-main__micro {
+    padding: 0;
+    margin-top: 120px;
+  }
+}

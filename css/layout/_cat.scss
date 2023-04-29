@@ -1,0 +1,64 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+.l-cat__title {
+  font-weight: 700;
+}
+
+.l-cat__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+  gap: 8px;
+}
+
+
+.l-cat__item-link {
+  padding: 4px 4px 3px;
+}
+
+.l-cat__item--secondary {
+  margin-top: 16px;
+}
+
+.l-cat__link-inner {
+  transition: v.$t-ease1;
+}
+
+@media (hover:hover) {
+  .l-cat__item-link:hover .l-cat__link-inner {
+    background-color: c.$c-primary-250;
+  }
+
+  .l-cat__item--secondary:last-of-type:hover .l-cat__link-back {
+    color: c.$c-accent-200;
+  }
+}
+
+@media (hover:none) {
+  .l-cat__item-link:active .l-cat__link-inner {
+    background-color: c.$c-primary-250;
+  }
+}
+
+
+
+.l-cat__link-back {
+  color: c.$c-accent-700;
+  transition: v.$t-ease1;
+}
+
+@include m.bp-map(tab) {
+  .l-cat__list {
+    flex-direction: column;
+    width: max-content;
+  }
+
+  .l-cat__item {
+    width: 100%;
+  }
+}

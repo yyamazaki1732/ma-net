@@ -1,0 +1,64 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+
+
+// ===============================================
+// # main
+// ===============================================
+
+.p-faq-main {
+  margin-top: 80px;
+  margin-bottom: 48px;
+}
+
+.p-faq-main__term {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  border-bottom: 1px solid c.$c-primary-250;
+  cursor: pointer;
+  padding: 0 16px;
+  font-weight: 400;
+}
+
+.p-faq-main__style {
+  font-size: fu.rem(18px);
+  padding: 20px 0;
+}
+
+.p-faq-main__desc {
+
+  display: flex;
+  align-items: flex-start;
+  column-gap: 16px;
+  height: 0;
+  overflow: hidden;
+  transition: v.$t-ease3;
+  padding: 0 16px;
+  background-color: c.$c-primary-200;
+}
+
+.p-faq-main__txt {
+  max-width: 700px;
+  padding: 24px 0;
+}
+
+@include m.bp-map(tab) {
+  .p-faq-main {
+    width: min(80%, 800px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+
+@include m.bp-map(pc) {
+  .p-faq-main {
+    margin-top: 120px;
+  }
+}

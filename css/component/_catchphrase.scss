@@ -1,0 +1,62 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+.c-catchphrase {
+  font-weight: 700;
+  line-height: 1.5;
+
+  &--right {
+    text-align: right;
+  }
+
+  &--primary {
+    font-size: 30px;
+  }
+
+  &--secondary {
+    font-size: 28px;
+  }
+}
+
+
+@include m.bp-map(tab) {
+  .c-catchphrase {
+
+    &--primary {
+      font-size: 40px;
+    }
+
+    &--secondary {
+      font-size: 32px;
+    }
+  }
+
+  .c-catchphrase__newline {
+    display: none;
+  }
+}
+
+@include m.bp-map(pc) {
+  .c-catchphrase {
+    &--primary {
+      font-size: 40px;
+    }
+
+    &--secondary {
+      font-size: 34px;
+    }
+  }
+}
+
+@include m.bp-map(pcl) {
+  .c-catchphrase {
+
+    &--primary {
+      font-size: 48px;
+    }
+  }
+}

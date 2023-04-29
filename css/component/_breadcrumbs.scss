@@ -1,0 +1,73 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+.c-breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  column-gap: 14px;
+  flex-wrap: wrap;
+
+  &--narrow {
+    padding-left: fu.vw(24px);
+  }
+}
+
+.c-breadcrumbs__link {
+  padding-bottom: 2px;
+  color: c.$c-neutral-700;
+}
+
+.c-breadcrumbs__item {
+  position: relative;
+  padding-right: 16px;
+  margin-right: 16px;
+  font-size: 14px;
+  transition: v.$t-ease1;
+
+
+  &:not(:last-of-type) {
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -8.5px;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid c.$c-neutral-700;
+      border-right: 1px solid c.$c-neutral-700;
+      content: "";
+      translate: 0 -50%;
+      rotate: 45deg;
+    }
+  }
+}
+
+@media (hover:hover) {
+  .c-breadcrumbs__item {
+    &:not(:last-of-type) {
+      .c-breadcrumbs__link:hover {
+        color: c.$c-neutral-400;
+      }
+    }
+  }
+}
+
+
+
+@include m.bp-map(pc) {
+  .c-breadcrumbs {
+    margin-top: initial;
+    position: fixed;
+    z-index: 1;
+    left: 1.5vw;
+    top: 80px;
+
+    &--narrow {
+      padding-left: initial;
+    }
+  }
+
+}

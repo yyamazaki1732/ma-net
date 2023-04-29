@@ -1,0 +1,131 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+.l-service {
+  position: relative;
+}
+
+.l-service__heading {
+  padding: 0 fu.vw(24px);
+}
+
+.l-service__title-block {
+  margin-top: 8px;
+  padding-right: fu.vw(24px);
+  display: grid;
+  grid-template: max-content/max-content 1fr max-content;
+  column-gap: 16px;
+  align-items: center;
+  border-top: 1px solid c.$c-primary-600;
+  border-bottom: 1px solid c.$c-primary-600;
+}
+
+.l-service__icon {
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  background-color: c.$c-primary-600;
+}
+
+.l-service__title {
+  color: c.$c-primary-600;
+  font-size: fu.rem(16px);
+  font-weight: 700;
+}
+
+.l-service__cont-block {
+  padding: 0 fu.vw(24px);
+  position: relative;
+  z-index: 1;
+}
+
+.l-service__phrase {
+  margin-top: 16px;
+  position: relative;
+  color: c.$c-primary-450;
+  position: relative;
+  font-size: 22px;
+}
+
+.l-service__txt {
+  margin-top: 4px;
+  max-width: 570px;
+}
+
+.l-service__subheading {
+  color: c.$c-primary-600;
+  margin-top: 36px;
+  font-weight: 700;
+}
+
+.l-service__list {
+  margin-top: 4px;
+}
+
+.l-service__item {
+  border-left: 1px solid c.$c-accent-700;
+  padding-bottom: 8px;
+
+  &:not(:first-of-type) {
+    margin-top: 16px;
+  }
+}
+
+.l-service__term {
+  background-color: c.$c-accent-700;
+  color: c.$c-neutral-100;
+  padding: 3px 8px 2px;
+  width: fit-content;
+}
+
+.l-service__desc {
+  margin-top: 8px;
+  padding-left: 8px;
+}
+
+.l-service__icon-bg {
+  position: absolute;
+  bottom: -24px;
+  right: fu.vw(24px);
+  width: min(40%, 240px);
+  height: auto;
+}
+
+@include m.bp-map(pc) {
+
+  .l-service__title-block {
+    border-right: 1px solid c.$c-primary-600;
+  }
+
+  .l-service__heading,
+  .l-service__cont-block {
+    padding: 0;
+  }
+
+  .l-service__list {
+    display: grid;
+    grid-template: max-content / repeat(3, 32%);
+    column-gap: 16px;
+  }
+
+  .l-service__item {
+    &:not(:first-of-type) {
+      margin-top: 0;
+    }
+  }
+
+  .l-service__item {
+    margin-top: 0;
+  }
+
+  .l-service__desc {
+    padding-right: 8px;
+  }
+
+  .l-service__icon-bg {
+    right: 0;
+  }
+}

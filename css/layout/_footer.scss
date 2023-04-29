@@ -1,0 +1,251 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+.l-footer {
+  background-color: c.$c-primary-800;
+  padding-top: 36px;
+  padding-bottom: 24px;
+  margin-top: -2px;
+}
+
+.l-footer__inner {
+  width: 100%;
+  padding: 0 min(fu.vw(24px), 72px);
+  color: c.$c-neutral-100;
+}
+
+.l-footer__button {
+  display: block;
+  width: fit-content;
+  writing-mode: vertical-rl;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 72px;
+  font-family: "Montserrat", "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+
+  &::after {
+    content: '';
+    width: 1px;
+    height: 64px;
+    background-color: c.$c-primary-250;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    animation: barFooter cubic-bezier(.03, .98, .41, .81) 3s infinite;
+  }
+
+  @keyframes barFooter {
+    0% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+
+    49% {
+      transform-origin: bottom;
+    }
+
+    50% {
+      transform: scaleY(100%);
+      transform-origin: top;
+    }
+
+    99% {
+      transform-origin: top;
+    }
+
+    100% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+}
+
+.l-footer__button-txt {
+  font-size: fu.rem(20px);
+  transition: v.$t-ease1;
+}
+
+@media (hover:hover) {
+  .l-footer__button:hover .l-footer__button-txt {
+    color: c.$c-primary-500;
+  }
+}
+
+@media (hover:none) {
+  .l-footer__button:active .l-footer__button-txt {
+    color: c.$c-primary-500;
+  }
+}
+
+@media (hover:hover) {
+  .l-footer__button:hover::after {
+    background-color: c.$c-primary-500;
+  }
+}
+
+@media (hover:none) {
+  .l-footer__button:active::after {
+    background-color: c.$c-primary-500;
+  }
+}
+
+.l-footer__list {
+  display: grid;
+  grid-template: repeat(4, max-content) / repeat(2, max-content);
+  grid-template-areas: "item01 item01" "item02 item03" "item04 item05" "item06 margin" "item07 item07";
+  justify-content: center;
+  column-gap: 40px;
+  align-items: center;
+}
+
+.l-footer__item {
+
+
+  &:not(:first-of-type) {
+    margin-top: 36px
+  }
+
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    margin-top: 56px
+  }
+
+  &:first-of-type {
+    grid-area: item01
+  }
+
+  &:nth-of-type(2) {
+    grid-area: item02
+  }
+
+  &:nth-of-type(3) {
+    grid-area: item03
+  }
+
+  &:nth-of-type(4) {
+    grid-area: item04
+  }
+
+  &:nth-of-type(5) {
+    grid-area: item05
+  }
+
+  &:nth-of-type(6) {
+    grid-area: item06
+  }
+
+  &:nth-of-type(7) {
+    grid-area: item07;
+    margin: 48px auto 0;
+    width: fit-content;
+  }
+}
+
+.l-footer__item-link {
+  font-size: fu.rem(14px);
+  transition: v.$t-ease1;
+
+  @include m.hover {
+    color: c.$c-primary-500;
+  }
+
+  @include m.active {
+    color: c.$c-primary-500;
+  }
+}
+
+.l-footer__item-en {
+  font-size: fu.rem(14px);
+  display: block;
+}
+
+.l-footer__logo {
+  width: 80px;
+  height: auto;
+  display: block;
+}
+
+.l-footer__copy {
+  text-align: center;
+  margin: 36px auto 0;
+  font-size: fu.rem(14px);
+  padding-top: 24px;
+  border-top: 0.5px solid c.$c-primary-600;
+}
+
+@include m.bp-map(tab) {
+  .l-footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .l-footer__button {
+    margin-left: 24px;
+  }
+
+  .l-footer__list {
+    grid-template: repeat(2, max-content) / repeat(5, max-content);
+    grid-template-areas: "item07 item02 item03 item04 item01" "item07 item05 item06 margin item01";
+    align-items: center;
+  }
+
+  .l-footer__item {
+
+    &:not(:first-of-type) {
+      margin-top: 0
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      margin-top: 0
+    }
+
+    &:last-of-type {
+      margin-right: 24px;
+    }
+  }
+
+  .l-footer__copy {
+    grid-area: copy;
+    width: 100%;
+  }
+}
+
+@include m.bp-map(pc) {
+
+  .l-footer__button {
+    margin-left: 40px;
+  }
+
+  .l-footer__list {
+    grid-template: max-content / repeat(7, max-content);
+    grid-template-areas: "item07 item02 item03 item04 item05 item06  item01";
+  }
+
+  .l-footer__item {
+    &:last-of-type {
+      margin-right: 40px;
+    }
+  }
+}
+
+@include m.bp-map(pcl) {
+  .l-footer__button {
+    margin-left: 56px;
+  }
+
+  .l-footer__item {
+    &:last-of-type {
+      margin-right: 56px;
+    }
+  }
+}

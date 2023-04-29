@@ -1,0 +1,101 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+.c-scroll {
+  display: block;
+  padding-bottom: 72px;
+  position: absolute;
+  right: min(fu.vw(24px), 72px);
+  bottom: 0;
+  translate: 0 30%;
+  z-index: 1;
+  writing-mode: vertical-rl;
+  font-family: "Montserrat", "Helvetica Neue",
+  Arial,
+  "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans",
+  Meiryo,
+  sans-serif;
+
+  &::after {
+    content: '';
+    width: 1px;
+    height: 64px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    background-color: c.$c-neutral-100;
+    animation: barTop cubic-bezier(.03, .98, .41, .81) 3s infinite;
+  }
+
+  @keyframes barTop {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+
+    49% {
+      transform-origin: top;
+    }
+
+    50% {
+      transform: scaleY(100%);
+      transform-origin: bottom;
+    }
+
+    99% {
+      transform-origin: bottom;
+    }
+
+    100% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+  }
+}
+
+.c-scroll__txt {
+  font-size: 14px;
+  color: c.$c-neutral-100;
+}
+
+
+@include m.bp-map(tabs) {
+
+  .c-scroll {
+    &--s {
+      right: 34px;
+    }
+  }
+}
+
+@include m.bp-map(tab) {
+
+  .c-scroll {
+
+    &--s {
+      opacity: 0;
+      visibility: 0;
+    }
+
+    &--l {
+      opacity: 1;
+      visibility: visible;
+      right: min(fu.vw(24px), 72px);
+      bottom: 48vh;
+      translate: 0 calc(100% + 64px);
+    }
+  }
+
+
+
+
+  .c-scroll__txt {
+    font-size: 16px
+  }
+
+}

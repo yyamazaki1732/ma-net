@@ -1,0 +1,58 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+.c-heading {
+  position: relative;
+  font-weight: 700;
+  padding: 0 22px;
+  font-family: "Montserrat", "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+
+  &--primary {
+    color: c.$c-accent-750;
+    font-size: fu.rem(14px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 12px;
+      height: 2px;
+      translate: 0 -50%;
+      background-color: c.$c-accent-700;
+    }
+  }
+
+  &--secondary {
+    color: c.$c-neutral-100;
+    font-size: fu.rem(20px);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 12px;
+      height: 2px;
+      translate: 0 -50%;
+      background-color: c.$c-neutral-100;
+    }
+
+    &::after {
+      left: initial;
+      right: 0;
+      translate: 0 -50%;
+      background-color: c.$c-neutral-100;
+    }
+
+  }
+}

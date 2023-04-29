@@ -1,0 +1,107 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+// ===============================================
+// # disabled
+// ===============================================
+input.c-button.c-button--secondary:disabled {
+  background-color: #aaa;
+  border: none;
+  color: #fff;
+}
+
+// ===============================================
+.c-button {
+  position: relative;
+  padding: 9px 14px 9px 16px;
+  font-size: 14px;
+  border: 2px solid c.$c-accent-600;
+  transition: v.$t-ease1;
+
+  // ===============================================
+  // # primary
+  // ===============================================
+  &--primary {
+    border-radius: 100px;
+    font-weight: 700;
+  }
+
+  &--secondary {
+    display: block;
+    border-radius: 100px;
+    font-weight: 700;
+    color: c.$c-neutral-100;
+    background-color: c.$c-accent-700;
+    padding: 13px 16px 13px;
+    min-width: 120px;
+    height: 54px;
+    text-align: center;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .c-button__txt {
+    color: c.$c-accent-600;
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    z-index: 1;
+    top: 1px;
+  }
+
+  .c-button__arrow-block {
+    border: 2px solid c.$c-accent-600;
+    background-color: c.$c-accent-600;
+    position: relative;
+    width: fit-content;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: v.$t-ease1;
+  }
+
+  .c-button__arrow {
+    width: 16px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    color: c.$c-neutral-100;
+    transition: v.$t-ease1;
+  }
+}
+
+@media (hover:hover) {
+  .c-button--primary:hover .c-button__arrow-block {
+    background-color: transparent;
+  }
+
+  .c-button--primary:hover .c-button__arrow {
+    color: c.$c-accent-600;
+  }
+
+  .c-button--secondary:hover {
+    background-color: c.$c-neutral-100;
+    color: c.$c-accent-700;
+  }
+}
+
+@media (hover:none) {
+  .c-button--primary:active .c-button__arrow-block {
+    background-color: transparent;
+  }
+
+  .c-button--primary:active .c-button__arrow {
+    color: c.$c-accent-600;
+  }
+
+  .c-button--secondary:active {
+    background-color: c.$c-neutral-100;
+    color: c.$c-accent-700;
+  }
+}

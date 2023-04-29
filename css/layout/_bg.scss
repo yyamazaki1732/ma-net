@@ -1,0 +1,84 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+.l-bg {
+  &--blue {
+    background-color: c.$c-primary-200;
+  }
+
+  &--bar {
+    position: relative;
+    padding-bottom: 64px;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 64px;
+      background-color: c.$c-primary-200;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.l-bg__inner {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  &--short {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &--narrow {
+    padding-left: fu.vw(24px);
+    padding-right: fu.vw(24px);
+  }
+
+
+}
+
+@include m.bp-map(pc) {
+  .l-bg {
+
+    &--white {
+      background-image: linear-gradient(270deg, c.$c-primary-200 3vw, c.$c-neutral-100 3vw);
+    }
+
+    &--blue {
+      background-image: linear-gradient(90deg, c.$c-neutral-100 7vw, c.$c-primary-200 7vw);
+    }
+
+    &--bar {
+      &::after {
+        background-image: linear-gradient(90deg, c.$c-neutral-100 7vw, c.$c-primary-200 7vw);
+      }
+    }
+  }
+
+  .l-bg__inner {
+    margin: 0 auto;
+    width: fu.vw(800px, 1024px);
+    max-width: 1000px;
+
+    &--short {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    &--short-sub {
+      padding-top: 0;
+      padding-bottom: 64px;
+    }
+
+    &--narrow {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+
+.l-blog-list {
+  margin: 24px auto 0;
+}
+
+.l-blog-list__item {
+  &:not(:first-of-type) {
+    .l-blog-list__item-link {
+      border-top: 1px solid c.$c-primary-300;
+    }
+  }
+}
+
+.l-blog-list__item-link {
+  padding: 24px 8px;
+  transition: v.$t-ease2;
+  border-radius: 4px;
+}
+
+@media (hover:hover) {
+  .l-blog-list__item-link:hover {
+    background-color: c.$c-primary-250;
+  }
+}
+
+.l-blog-list__block {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+}
+
+.l-blog-list__date {
+  margin-right: 8px;
+  color: c.$c-primary-450;
+  font-weight: 700;
+}
+
+.l-blog-list__title {
+  font-size: fu.rem(15px);
+  margin-top: 8px;
+}
+
+@include m.bp-map(tab) {
+
+  .l-blog-list__item-link {
+    display: flex;
+    align-items: center;
+    padding-bottom: 32px;
+    padding-top: 32px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .l-blog-list__block {
+    margin-right: 24px;
+
+  }
+
+  .l-blog-list__title {
+    margin-top: 0;
+  }
+}

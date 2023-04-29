@@ -1,0 +1,33 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+
+.p-finish-main {
+    margin-top: 80px;
+    text-align: center;
+    height: 20vh;
+}
+
+.p-finish-main__title {
+    font-weight: 700;
+    font-size: fu.rem(18px);
+}
+
+.p-finish-main__txt {
+    margin-top: 24px;
+}
+
+.p-finish-main__button {
+    width: fit-content;
+    margin: 48px auto 0;
+}
+
+@include m.bp-map(tab) {
+    .p-finish-main {
+        margin-top: 120px;
+    }
+}

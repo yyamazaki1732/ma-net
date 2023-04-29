@@ -1,0 +1,81 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+
+// ===============================================
+// # main
+// ===============================================
+
+.p-blog-main {
+  margin-top: 80px;
+}
+
+.p-blog-main__term {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  border-bottom: 1px solid c.$c-neutral-200;
+}
+
+.p-blog-main__style {
+  font-size: fu.rem(18px);
+  font-weight: 600;
+  padding: 20px 0;
+}
+
+.p-blog-main__desc {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 16px;
+  height: 0;
+  overflow: hidden;
+  transition: v.$t-ease3;
+  border-bottom: 1px solid c.$c-neutral-300;
+}
+
+.p-blog-main__txt {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.p-blog-main__empty-state {
+  color: c.$c-neutral-500;
+  font-size: fu.rem(20px);
+  padding: 80px 0;
+  text-align: center;
+}
+
+@include m.bp-map(tab) {
+  .p-blog-main {
+    display: grid;
+    grid-template: max-content /75% max-content;
+    grid-template-areas: "cont cat";
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .p-blog-main__cat {
+    grid-area: cat;
+  }
+
+  .p-blog-main__cont {
+    grid-area: cont;
+  }
+
+  .p-blog-main__newline {
+    display: none;
+  }
+}
+
+@include m.bp-map(tab) {
+  .p-blog-main {
+    margin-top: 120px;
+  }
+}

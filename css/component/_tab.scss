@@ -1,0 +1,16 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/color" as c;
+@use "../foundation/font" as fo;
+@use "../foundation/function" as fu;
+@use "../foundation/variable" as v;
+
+// ===============================================
+// # l-catにてホバー字の色変更中
+// ===============================================
+.c-tab {
+  padding: 2px 3px 1px;
+  border: 2px solid c.$c-primary-400;
+  color: c.$c-primary-450;
+  min-width: 85px;
+  text-align: center;
+}
